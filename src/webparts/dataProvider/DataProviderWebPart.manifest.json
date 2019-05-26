@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "49b03787-34b2-4ebb-9293-c61bb32acb71",
+  "alias": "DataProviderWebPart",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "動的データ生成Webパーツ" },
+    "description": { "default": "dynamic data provider." },
+    "officeFabricIconFontName": "Source",
+    "properties": {
+      "description": "dataProvider"
+    }
+  }]
+}

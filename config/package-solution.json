@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "most-simple-dynamic-data-sample-client-side-solution",
+    "id": "740bd467-e7b1-4668-a109-610b03303b08",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/most-simple-dynamic-data-sample.sppkg"
+  }
+}
