@@ -7,13 +7,12 @@ import * as strings from 'DataViewerWebPartStrings';
 import DataViewer from './components/DataViewer';
 import { IDataViewerProps } from './components/IDataViewerProps';
 import { DynamicProperty } from '@microsoft/sp-component-base';
-import { propertyId as propIdString } from '../../dynamicData/SampleStringData';
-import { propertyId as propIdCustom, CustomType } from '../../dynamicData/SampleCustomData';
+import { propertyId } from '../../dynamicData/SampleStringData';
 
 /** 動的データ表示Webパーツ プロパティ定義 */
 export interface IDataViewerWebPartProps {
-  /** サンプル文字列 */
-  sampleString : DynamicProperty<string>;
+  /** サンプル文字列 プロパティ名を SampleStringData.ts 内 propertyId と一致させること */
+  sampleStringData : DynamicProperty<string>;
 }
 
 /** 動的データ表示Webパーツ */
@@ -23,15 +22,13 @@ export default class DataViewerWebPart extends BaseClientSideWebPart<IDataViewer
   public render(): void {
 
     // 動的データ取得
-    let dString : string = (this.properties.sampleString)? this.properties.sampleString.tryGetValue() : undefined;
+    let dString : string = (this.properties.sampleStringData)? this.properties.sampleStringData.tryGetValue() : undefined;
 
     // 要素の生成
     const element: React.ReactElement<IDataViewerProps > = React.createElement(
       DataViewer,
       {
-        string : dString,
-        address : 'a',
-        phoneNumber : 'b'
+        string : dString
       }
     );
 
@@ -49,7 +46,7 @@ export default class DataViewerWebPart extends BaseClientSideWebPart<IDataViewer
     return Version.parse('1.0');
   }
 
-  /** プロパティ定義 */
+  /** プロパティウィンドウの構成 */
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
@@ -62,18 +59,11 @@ export default class DataViewerWebPart extends BaseClientSideWebPart<IDataViewer
                   label : '動的データ接続',
                   fields : [
                     PropertyPaneDynamicField(
-                      propIdString,
+                      propertyId,
                       {
                         label : '接続先'
                       }
                     )
-                    /*
-                    ,PropertyPaneDynamicField(
-                      propIdCustom,
-                      {
-                        label : 'カスタム定義型'
-                      }
-                    )*/
                   ],
                   sharedConfiguration : {
                     depth : DynamicDataSharedDepth.Property

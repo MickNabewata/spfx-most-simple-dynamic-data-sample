@@ -9,10 +9,6 @@ export default class DataViewer extends React.Component<IDataViewerProps, {}> {
       <div>
         <h2>サンプル文字列</h2>
         <div>{this.props.string}</div>
-        <h2>住所</h2>
-        <div>{this.props.address}</div>
-        <h2>電話番号</h2>
-        <div>{this.props.phoneNumber}</div>
       </div>
     );
   }
